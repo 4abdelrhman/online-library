@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In - online library</title>
+    <link
+      rel="shortcut icon"
+      href="Imgs/stack-of-books.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="Styles/logIn.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <a href="index.html">
+        <button type="button" class="back">
+          <img src="Imgs/arrow.png" class="back" />
+        </button>
+      </a>
+      <form action="">
+        <div class="img-container">
+          <img src="Imgs/Logo.png" class="img-logo" alt="Library Logo" />
+        </div>
+
+        <div class="form-header">
+          <h2>Welcome Back</h2>
+          <p>Please Log in with your account</a></p>
+        </div>
+
+        <div class="input-container">
+          
+          <label>Email Address</label>
+          <input type="email" placeholder="Email" required />
+
+          <label>Password</label>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              class="pass"
+            />
+            <button type="button" class="show-pass" onclick="">
+              <img src="Imgs/hide.png" />
+            </button>
+          </div>
+
+        </div>
+        <div class="remem">
+          <div>
+            <input type="checkbox" id="remember"> 
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="">Forgot passsword?</a>
+        </div>
+        <button type="submit" class="submit">Log in</button>
+      </form>
+    </div>
+  </body>
+</html>
