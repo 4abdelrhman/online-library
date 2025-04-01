@@ -149,3 +149,17 @@ nav .btns .exp {
 .add-books button:hover {
   background-color: #595a3e;
 }
+.books-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.book {
+  width: 475px;
+  height: 229px;
+  background-color: #fff;
+  margin-bottom: 24px;
+  border-radius: 12px;
+}
