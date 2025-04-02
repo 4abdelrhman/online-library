@@ -217,7 +217,7 @@ nav .btns .exp {
 .remove {
   width: 100%;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 24px;
   border: none;
   background-color: red;
   color: #fff;
