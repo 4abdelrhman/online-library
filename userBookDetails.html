@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User's Books Details</title>
-    <script type="module">
-      import header from "./Components/header.js";
-      document.addEventListener("DOMContentLoaded", () =>
-        header.render("header")
-      );
-    </script>
     <link
       rel="shortcut icon"
       href="Imgs/stack-of-books.png"
@@ -19,19 +13,51 @@
   </head>
 
   <body>
-  <nav id = "header"></nav>
-  
+    <nav>
+      <div class="logo">
+        <img src="Imgs/Logo.png" alt="" />
+        <h2>Books</h2>
+      </div>
+
+      <div class="nav-side">
+        <div class="btns">
+          <a href="#" class="home">Home</a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Favourites</a></li>
+        </ul>
+      </div>
+
+      <div class="search-bar">
+        <img src="Imgs/search-normal.png" class="search-ic" />
+        <input
+          type="text"
+          placeholder="Search for title, author and category"
+        />
+      </div>
+
+      <div>
+        <a href="profile.html">
+          <button class="user"><img src="Imgs/user.png" /></button>
+        </a>
+      </div>
+    </nav>
+
     <h1 class="book-details-word">Book Details</h1>
     <div class="book-card">
       <div class="book">
-        <img src="Imgs/bookCover1.jpg" alt="Book-1"class ="book-cover">
+        <img src="Imgs/bookCover1.jpg" alt="Book-1" class="book-cover" />
         <div class="book-details">
           <div class="book-title">
             <h2>Little Women</h2>
-            
           </div>
           <h4 class="author">Louisa May Alcott</h4>
-          <p class="discription">Little Women follows the four March sisters—Jo, Beth, Meg, and
+          <p class="discription">
+            Little Women follows the four March sisters—Jo, Beth, Meg, and
             Amy—as they navigate life, love, and personal growth in Civil
             War-era New England. Inspired by Louisa May Alcott's own family, the
             novel explores themes of sisterhood, ambition, and resilience.
@@ -48,4 +74,5 @@
         </div>
       </div>
     </div>
+  </body>
 </html>
