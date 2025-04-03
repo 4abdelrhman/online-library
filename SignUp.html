@@ -31,19 +31,14 @@
 
         <div class="input-container">
           <label>Username</label>
-          <input type="text" placeholder="User name" required />
+          <input type="text" placeholder="User name" />
 
           <label>Email Address</label>
-          <input type="email" placeholder="Email" required />
+          <input type="email" placeholder="Email" />
 
           <label>Password</label>
           <div class="password-wrapper">
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              class="pass"
-            />
+            <input type="password" placeholder="Password" class="pass" />
             <button type="button" class="show-pass" onclick="">
               <img src="Imgs/hide.png" />
             </button>
@@ -54,7 +49,6 @@
             <input
               type="password"
               placeholder="Confirm Password"
-              required
               class="pass"
             />
             <button type="button" class="show-pass" onclick="">
@@ -63,7 +57,9 @@
           </div>
         </div>
 
-        <button type="submit" class="submit">Create Account</button>
+        <a href="">
+          <button type="button" class="submit">Create Account</button>
+        </a>
       </form>
     </div>
   </body>
