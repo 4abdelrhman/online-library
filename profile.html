@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
+    <script type="module">
+      import header from "./Components/header.js";
+      document.addEventListener("DOMContentLoaded", () =>
+        header.render("header")
+      );
+    </script>
     <link rel="stylesheet" href="Styles/profile.css" />
     <link
       rel="shortcut icon"
@@ -12,40 +18,7 @@
     />
   </head>
   <body>
-    <nav>
-      <div class="logo">
-        <img src="Imgs/Logo.png" alt="" />
-        <h2>Books</h2>
-      </div>
-
-      <div class="nav-side">
-        <div class="btns">
-          <a href="#" class="home">Home</a>
-        </div>
-
-        <ul class="nav-links">
-          <li><a href="#">Services</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Favourites</a></li>
-        </ul>
-      </div>
-
-      <div class="search-bar">
-        <img src="Imgs/search-normal.png" class="search-ic" />
-        <input
-          type="text"
-          placeholder="Search for title, author and category"
-        />
-      </div>
-
-      <div>
-        <a href="profile.html">
-          <button class="user"><img src="Imgs/user.png" /></button>
-        </a>
-      </div>
-    </nav>
-
+    <nav id = "header"></nav>
     <div class="user-details">
       <img src="Imgs/cover photo.png" class="cover-img" />
       <img src="Imgs/User photo.png" class="user-img" />
