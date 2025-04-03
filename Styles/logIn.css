@@ -126,3 +126,12 @@ input {
 .remem a:hover {
   text-decoration: underline;
 }
+
+.log-in {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.log-in a {
+  width: 50%;
+}
