@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+     <script type="module">
+      import header from "./Components/header.js";
+      document.addEventListener("DOMContentLoaded", () =>
+        header.renderUserHeader("header")
+      );
+    </script>
+    <link
+      rel="shortcut icon"
+      href="Imgs/stack-of-books.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="Styles/userbookDetails.css" />
+  </head>
+  <body>
+    <nav id = "header"></nav>
+    <div class="flex-container">
+      <div class="gird-container">
+        <div class="book-info">
+          <img src="./Imgs/bookCover1.jpg" alt="book cover" />
+          <div class="text-info">
+            <div class="title">
+              Little Woman
+              <img
+                src="./Imgs/Style=linear.png"
+                alt="fav icon"
+              />
+            </div>
+            <p class="author">Louisa May Alcott</p>
+            <p class="descreption">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
+              esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
+              consectetur fugit perferendis voluptas cumque alias cupiditate
+            </p>
+            <div class="buttons">
+                <button class="borrow">Borrow Book</button>
+                <button class="Details">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
