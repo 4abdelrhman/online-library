@@ -9,12 +9,18 @@ body {
   background-color: #e6e6e6;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 nav {
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0 20px;
   margin-top: 14px;
 }
@@ -75,7 +81,7 @@ nav .btns .exp {
   gap: 15px;
   padding: 0;
   border: 1px solid rgb(182, 182, 182);
-  width: 600px;
+  width: 450px;
   height: 35px;
   border-radius: 35px;
 }
@@ -112,6 +118,33 @@ nav .btns .exp {
   height: 22px;
 }
 
+.nav-side {
+  display: flex;
+  gap: 5px;
+}
+
+.search-bar {
+  position: relative;
+  width: 550px;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px;
+  border-radius: 49px;
+  border: 1px solid #a9a9a9;
+  outline: none;
+}
+
+.search-ic {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+  width: 20px;
+  height: 20px;
+}
+
 .setting {
   cursor: pointer;
   background-color: #f2f2f2;
@@ -130,7 +163,8 @@ nav .btns .exp {
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 24px;
+  padding-left: 1%;
+  padding-bottom: 0.5%;
 }
 .add-books h1 {
   font-family: sans-serif;
