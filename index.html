@@ -32,17 +32,17 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener('DOMContentLoaded', function () {
         const buttons = document.querySelectorAll(
-          ".primary-btn, .secondary-btn"
+          '.primary-btn, .secondary-btn'
         );
 
         buttons.forEach((btn) => {
-          btn.addEventListener("mouseenter", () => {
-            btn.style.transform = "translateY(-5px) scale(1.05)";
+          btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'translateY(-5px) scale(1.05)';
           });
-          btn.addEventListener("mouseleave", () => {
-            btn.style.transform = "translateY(0) scale(1)";
+          btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translateY(0) scale(1)';
           });
         });
       });
