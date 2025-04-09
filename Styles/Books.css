@@ -103,7 +103,6 @@ button {
 
 .borrow:hover {
   border: 1.5px solid #6b6c4a;
-  font-size: 0.9em;
 }
 
 .details {
@@ -115,7 +114,6 @@ button {
 .details:hover {
   border: 1.5px solid #6b6c4a;
   color: #6b6c4a;
-  font-size: 0.9em;
 }
 @media (min-width: 801px) and (max-width: 1060px) {
   * {
