@@ -67,9 +67,13 @@ body {
   padding: 10px;
   border-radius: 4px;
   border: none;
-  background-color: red;
+  background-color: #df0202;
   color: #fff;
   cursor: pointer;
+  transition: 0.3s;
+}
+.remove:hover {
+  background-color: #ff1a1a;
 }
 
 .cover-container {
