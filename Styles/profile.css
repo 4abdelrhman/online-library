@@ -254,6 +254,7 @@ nav .btns .exp {
   border-radius: 4px;
   cursor: pointer;
   height: 100%;
+  transition: 0.3s;
 }
 
 .View-details {
@@ -261,11 +262,17 @@ nav .btns .exp {
   color: #6b6c4a;
   font-size: 14px;
 }
+.View-details:hover {
+  background-color: #d3d1d1;
+}
 
 .borrwoed-btn {
-  background-color: #6b6c4aaf;
+  background-color: #656647;
   border: none;
   color: #fff;
+}
+.borrwoed-btn:hover {
+  background-color: #7a7a55;
 }
 .book .btns a {
   width: 50%;
