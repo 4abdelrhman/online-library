@@ -95,10 +95,13 @@ button {
   cursor: pointer;
 }
 
+a{
+  width: 48%;
+}
+
 .borrow {
   background-color: #6b6c4a;
   color: #fff;
-  height: 30px;
 }
 
 .borrow:hover {
@@ -110,6 +113,9 @@ button {
   background-color: inherit;
   border: 1.5px solid #8a8a65;
   color: #6b6c4a;
+  height: 30px;
+  width: 100%;
+
 }
 
 .details:hover {
