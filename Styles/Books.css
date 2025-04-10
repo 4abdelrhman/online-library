@@ -12,6 +12,7 @@ body {
 .available-books {
   padding-left: 1%;
   padding-bottom: 1%;
+  color: #6b6c4a;
 }
 
 .grid-container {
@@ -96,13 +97,13 @@ button {
 }
 
 .borrow {
-  background-color: #6b6c4aaf;
+  background-color: #656647;
   border: none;
   color: #fff;
 }
 
 .borrow:hover {
-  background-color: #656647;
+  background-color: #7a7a55;
 }
 
 .details {
