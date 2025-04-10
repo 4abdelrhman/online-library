@@ -145,7 +145,6 @@ nav .btns .exp {
 }
 
 .book-card {
-  margin-top: 30px;
   padding: 0 20px 20px;
   width: 100%;
 }
@@ -200,7 +199,7 @@ nav .btns .exp {
 }
 .buttons {
   display: flex;
-  gap: 10%;
+  gap: 5%;
 }
 
 .fav-btn,
@@ -223,11 +222,11 @@ nav .btns .exp {
 }
 
 .borrow-btn {
-  background-color: #6b6c4aaf;
+  background-color: #656647;
   border: none;
   color: #fff;
 }
 
 .borrow-btn:hover {
-  background-color: #656647;
+  background-color: #7a7a55;
 }

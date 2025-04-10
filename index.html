@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome - Online Library</title>
+    <title>Online Library - Expand Your World</title>
     <link rel="stylesheet" href="Styles/index.css" />
     <link
       rel="shortcut icon"
@@ -12,16 +12,40 @@
     />
   </head>
   <body>
-    <div class="container">
-      <img src="Imgs/Logo.png" alt="Library Logo" />
-      <h1>Welcome</h1>
-      <h3>Online Library</h3>
-      <a href="logIn.html">
-        <button type="button" class="log-in">Log In</button>
-      </a>
-      <a href="SignUp.html">
-        <button type="button" class="sign-up">Join Us for free</button>
-      </a>
+    <div class="landing-container">
+      <img src="Imgs/Logo.png" alt="Library Logo" class="header-logo" />
+
+      <div class="hero">
+        <div class="hero-text">
+          <h1 class="typewriter">
+            The easiest way to open your world as wide as possible
+          </h1>
+          <p class="subtitle">
+            Borrow, organize, and read your books in one app.
+          </p>
+        </div>
+        <div class="cta-buttons">
+          <a href="SignUp.html" class="primary-btn">Join Us for Free</a>
+          <a href="logIn.html" class="secondary-btn">Log In</a>
+        </div>
+      </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll(
+          '.primary-btn, .secondary-btn'
+        );
+
+        buttons.forEach((btn) => {
+          btn.addEventListener('mouseenter', () => {
+            btn.style.transform = 'translateY(-5px) scale(1.05)';
+          });
+          btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translateY(0) scale(1)';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
