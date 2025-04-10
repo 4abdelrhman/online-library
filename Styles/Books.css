@@ -12,6 +12,7 @@ body {
 .available-books {
   padding-left: 1%;
   padding-bottom: 1%;
+  color: #6b6c4a;
 }
 
 .grid-container {
@@ -84,38 +85,35 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: space-between;
-  width: 95%;
+  gap: 10%;
 }
 
 button {
-  width: 48%;
-  border: none;
+  width: 180px;
+  padding: 10px;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .borrow {
-  background-color: #6b6c4a;
+  background-color: #656647;
+  border: none;
   color: #fff;
-  height: 30px;
 }
 
 .borrow:hover {
-  border: 1.5px solid #6b6c4a;
-  font-size: 0.9em;
+  background-color: #7a7a55;
 }
 
 .details {
-  background-color: inherit;
-  border: 1.5px solid #8a8a65;
+  border: 1.5px solid #6b6c4a;
   color: #6b6c4a;
+  font-size: 14px;
 }
 
 .details:hover {
-  border: 1.5px solid #6b6c4a;
-  color: #6b6c4a;
-  font-size: 0.9em;
+  background-color: #d3d1d1;
 }
 @media (min-width: 801px) and (max-width: 1060px) {
   * {
