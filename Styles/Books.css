@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+.available-books {
+  padding-left: 1%;
+  padding-bottom: 1%;
+  color: #6b6c4a;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, calc(95% / 3));
+  justify-content: space-evenly;
+  row-gap: 10px;
+}
+@media (max-width: 800px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    height: 85vh;
+    width: 100vw;
+  }
+
+  .book-info {
+    width: 100%;
+  }
+}
+
+.cover {
+  width: 90%;
+  border: 0.5px solid #00000064;
+  border-radius: 3px;
+}
+
+.cover-container {
+  padding: 5%;
+}
+
+.fav {
+  width: 10%;
+  cursor: pointer;
+}
+
+.book-info {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+
+  background-color: white;
+  border-radius: 20px;
+  justify-content: space-evenly;
+}
+
+.text-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 3%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.author {
+  color: #00000090;
+  font-size: 0.8em;
+}
+
+.descreption {
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  gap: 10%;
+}
+
+button {
+  width: 180px;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.borrow {
+  background-color: #656647;
+  border: none;
+  color: #fff;
+}
+
+.borrow:hover {
+  background-color: #7a7a55;
+}
+
+.details {
+  border: 1.5px solid #6b6c4a;
+  color: #6b6c4a;
+  font-size: 14px;
+}
+
+.details:hover {
+  background-color: #d3d1d1;
+}
+@media (min-width: 801px) and (max-width: 1060px) {
+  * {
+    font-size: 1.2vw;
+  }
+}

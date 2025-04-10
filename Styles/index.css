@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
@@ -90,7 +90,7 @@ h1 {
 }
 
 .subtitle::after {
-  content: "";
+  content: '';
   display: block;
   width: 100px;
   height: 3px;

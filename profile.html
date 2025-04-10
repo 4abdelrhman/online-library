@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
+    <script type="module">
+      import header from './Components/header.js';
+      document.addEventListener('DOMContentLoaded', () =>
+        header.renderUserHeader('header')
+      );
+    </script>
     <link rel="stylesheet" href="Styles/profile.css" />
     <link
       rel="shortcut icon"
@@ -12,38 +18,7 @@
     />
   </head>
   <body>
-    <nav>
-      <div class="logo">
-        <img src="Imgs/Logo.png" alt="" />
-        <h2>Books</h2>
-      </div>
-
-      <div class="nav-side">
-        <div class="btns">
-          <a href="#" class="home">Home</a>
-        </div>
-
-        <ul class="nav-links">
-          <li><a href="#">Services</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Favourites</a></li>
-        </ul>
-      </div>
-
-      <div class="search-bar">
-        <img src="Imgs/search-normal.png" class="search-ic" />
-        <input
-          type="text"
-          placeholder="Search for title, author and category"
-        />
-      </div>
-
-      <div>
-        <button class="user"><img src="Imgs/user.png" /></button>
-      </div>
-    </nav>
-
+    <nav id="header"></nav>
     <div class="user-details">
       <img src="Imgs/cover photo.png" class="cover-img" />
       <img src="Imgs/User photo.png" class="user-img" />
@@ -52,10 +27,264 @@
 
     <div class="borrwoed">
       <p>Borrwoed Books by username:</p>
-      <label class="num">(21)</label>
+      <label class="num">(11)</label>
     </div>
 
     <div class="books-container">
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="./Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <a href="userBookDetails.html" class="show-details">
+              <button class="View-details">View Details</button>
+            </a>
+            <a href="">
+              <button class="borrwoed-btn">Borrwoed</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book">
+        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>Atomic Habits</h2>
+            <button>
+              <img id="icons" src="Imgs/Style=linear.png" class="star-icon" />
+            </button>
+          </div>
+          <h4 class="auther">James Clear</h4>
+          <p class="discrebtion">
+            A guide to forming good habits and breaking bad ones through small,
+            consistent changes over time.
+          </p>
+          <div class="id">
+            <p>ID: 101</p>
+          </div>
+
+          <div class="btns">
+            <button class="View-details">View Details</button>
+            <button class="borrwoed-btn">Borrwoed</button>
+          </div>
+        </div>
+      </div>
+
       <div class="book">
         <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
         <div class="book-side">
