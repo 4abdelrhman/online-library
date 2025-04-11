@@ -92,6 +92,7 @@ button {
   width: 48%;
   border-radius: 4px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 a{
