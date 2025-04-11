@@ -89,11 +89,14 @@ body {
 }
 
 button {
-  width: 180px;
-  padding: 10px;
+  width: 48%;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+a{
+  width: 48%;
 }
 
 .borrow {
@@ -109,7 +112,9 @@ button {
 .details {
   border: 1.5px solid #6b6c4a;
   color: #6b6c4a;
-  font-size: 14px;
+  height: 30px;
+  width: 100%;
+
 }
 
 .details:hover {
