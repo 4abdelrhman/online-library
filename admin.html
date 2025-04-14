@@ -23,7 +23,7 @@
     <br />
     <div class="add-books">
       <h1>Available Books</h1>
-      <button type="button" id="add-books-btn">Add Book</button>
+      <button onclick="addBook()" id="add-books-btn">Add Book</button>
     </div>
 
     <div class="books-container">
@@ -32,7 +32,7 @@
         <div class="book-side">
           <div class="title">
             <h2>Atomic Habits</h2>
-            <button id="edit-book">
+            <button class="edit-book" onclick="editBook()">
               <img src="Imgs/editing.png" class="edit-icon" />
             </button>
           </div>
@@ -44,15 +44,16 @@
           <div class="id">
             <p>ID: 101</p>
           </div>
-
-          <button class="remove" id="delete-book">Delete Book</button>
+          <button class="remove" id="delete-book" onclick="deleteBook()">
+            Delete Book
+          </button>
         </div>
       </div>
     </div>
 
     <div class="black" id="edit-popup">
       <div class="book-card">
-        <button class="close-btn" id="close-popup">
+        <button class="close-btn" onclick="closePopup()">
           <img src="Imgs/close.png" class="close-img" />
         </button>
         <div class="book-detail">
