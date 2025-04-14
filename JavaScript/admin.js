@@ -1,13 +1,11 @@
-let container = document.querySelector('.books-container');
-let addBook = document.querySelector('.add-books');
-
-addBook.addEventListener('click', function () {
+function addBook() {
+  const container = document.querySelector('.books-container');
   container.innerHTML += `<div class="book">
         <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
         <div class="book-side">
           <div class="title">
             <h2>Atomic Habits</h2>
-            <button>
+            <button class="edit-book" onclick="editBook()">
               <img src="Imgs/editing.png" class="edit-icon" />
             </button>
           </div>
@@ -19,33 +17,28 @@ addBook.addEventListener('click', function () {
           <div class="id">
             <p>ID: 101</p>
           </div>
-
-          <button class="remove">Delete Book</button>
+          <button class="remove" id="delete-book" onclick="deleteBook()">Delete Book</button>
         </div>
       </div>`;
-});
+}
 
-container.addEventListener('click', function (e) {
-  if (e.target.classList.contains('remove') || e.target.closest('.remove')) {
-    const bookDiv = e.target.closest('.book');
-    if (bookDiv) {
-      bookDiv.remove();
-    }
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const editButtons = document.querySelectorAll('#edit-book');
-  const popup = document.getElementById('edit-popup');
-  const closeBtn = document.getElementById('close-popup');
-
-  editButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      popup.style.display = 'block';
+function deleteBook() {
+  const deleteBtn = document.querySelectorAll('#delete-book');
+  deleteBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.parentElement.parentElement.remove();
     });
   });
+}
 
-  closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-});
+function editBook() {
+  const popup = document.getElementById('edit-popup');
+  popup.style.display = 'block';
+}
+
+function closePopup() {
+  const popup = document.getElementById('edit-popup');
+  popup.style.display = 'none';
+}
+
+
