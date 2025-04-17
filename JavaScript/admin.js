@@ -1,21 +1,20 @@
 function addBook() {
   const container = document.querySelector('.books-container');
   container.innerHTML += `<div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
+        <img src="Imgs/bookCover1.jpg" class="book-cover" />
         <div class="book-side">
           <div class="title">
-            <h2>Atomic Habits</h2>
+            <h2>Little Women</h2>
             <button class="edit-book" onclick="editBook()">
               <img src="Imgs/editing.png" class="edit-icon" />
             </button>
           </div>
-          <h4 class="auther">James Clear</h4>
+          <h4 class="auther">Louisa May Alcott</h4>
           <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
+            Little Women follows the four March sisters—Jo, Beth, Meg, and Amy—as they navigate life, love, and personal...
           </p>
           <div class="id">
-            <p>ID: 101</p>
+            <p>ID: 200</p>
           </div>
           <button class="remove" id="delete-book" onclick="deleteBook()">Delete Book</button>
         </div>
