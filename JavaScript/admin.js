@@ -40,5 +40,3 @@ function closePopup() {
   const popup = document.getElementById('edit-popup');
   popup.style.display = 'none';
 }
-
-
