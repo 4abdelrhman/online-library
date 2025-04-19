@@ -465,21 +465,7 @@ nav .btns .exp {
   align-items: center;
 }
 
-.edit-book-cover-btn {
-  width: 15px;
-  height: 15px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffffff00;
-  position: absolute;
-  right: 0;
-  bottom: 2px;
-}
 
-.edit-book-cover-btn img {
-  width: 100%;
-  height: 100%;
-}
 
 #edit-form .submit {
   width: 150px;
