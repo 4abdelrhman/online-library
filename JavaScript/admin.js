@@ -22,7 +22,7 @@ function loadBooksFromStorage() {
 
   books.forEach((book) => {
     container.innerHTML += `<div class="book" data-id="${book.id}">
-      <img src="Imgs/${book.cover}.jpg" class="book-cover" />
+      <img src="Imgs/Cover/${book.cover}.jpg" class="book-cover" />
       <div class="book-side">
         <div class="title">
           <h2>${book.title}</h2>
