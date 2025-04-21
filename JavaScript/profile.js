@@ -51,11 +51,11 @@ function handleClick(
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("books-container");
-  const countLabel = document.getElementById("borrowed-count");
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('books-container');
+  const countLabel = document.getElementById('borrowed-count');
 
-  const borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+  const borrowedBooks = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
   countLabel.textContent = `(${borrowedBooks.length})`;
 
   if (borrowedBooks.length === 0) {
@@ -63,12 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  container.innerHTML = "";
-
+  container.innerHTML = '';
   borrowedBooks.forEach((book) => {
     const bookHTML = `
       <div class="book" data-id="${book.id}">
-        <img src="${book.coverImg}" alt="${book.title}" class="book-cover" />
+        <img src="${book.coverImg}" class="book-cover" />
         <div class="book-side">
           <div class="title">
             <h2>${book.title}</h2>
@@ -80,27 +79,27 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="description">${book.description}</p>
           <div class="id"><p>ID: ${book.id}</p></div>
           <div class="btns">
-            <a href="userBookDetails.html"><button class="View-details">View Details</button></a>
+            <button class="View-details" onclick="detailsBook(this)">View Details</button>
             <button class="borrowed-btn">Borrowed</button>
           </div>
         </div>
       </div>
     `;
 
-    container.insertAdjacentHTML("beforeend", bookHTML);
+    container.insertAdjacentHTML('beforeend', bookHTML);
 
     const lastBook = container.lastElementChild;
-    const starIcon = lastBook.querySelector(".star-icon");
-    const borrowBtn = lastBook.querySelector(".borrowed-btn");
+    const starIcon = lastBook.querySelector('.star-icon');
+    const borrowBtn = lastBook.querySelector('.borrowed-btn');
     const bookId = book.id;
 
-    borrowBtn.addEventListener("click", () => {
+    borrowBtn.addEventListener('click', () => {
       currentBook = book;
       handleClick(
-        "borrowedBooks",
+        'borrowed',
         borrowBtn,
-        "Borrowed",
-        "Borrow",
+        'Borrowed',
+        'Borrow',
         lastBook,
         countLabel,
         container
@@ -108,25 +107,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // star icon
-    const favBooks = JSON.parse(localStorage.getItem("favBooks")) || [];
+    const favBooks = JSON.parse(localStorage.getItem('favBooks')) || [];
     const isFav = favBooks.some((b) => b && b.id === bookId);
     if (isFav) {
-      starIcon.src = "Imgs/Style=bold.png";
+      starIcon.src = 'Imgs/Style=bold.png';
     }
 
-    starIcon.addEventListener("click", () => {
-      let favBooks = JSON.parse(localStorage.getItem("favBooks")) || [];
+    starIcon.addEventListener('click', () => {
+      let favBooks = JSON.parse(localStorage.getItem('favBooks')) || [];
       const isFav = favBooks.some((b) => b && b.id === bookId);
 
       if (isFav) {
         favBooks = favBooks.filter((b) => b && b.id !== bookId);
-        starIcon.src = "Imgs/Style=linear.png";
+        starIcon.src = 'Imgs/Style=linear.png';
       } else {
         favBooks.push(book);
-        starIcon.src = "Imgs/Style=bold.png";
+        starIcon.src = 'Imgs/Style=bold.png';
       }
 
-      localStorage.setItem("favBooks", JSON.stringify(favBooks));
+      localStorage.setItem('favBooks', JSON.stringify(favBooks));
     });
   });
 });
+
+function detailsBook(button) {
+  const bookElement = button.closest('.book');
+  const bookId = Number(bookElement.getAttribute('data-id')); // Convert to number
+
+  const popup = document.getElementById('edit-popup');
+  const books = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+
+  // Find the book with the corresponding bookId
+  currentBook = books.find((b) => b.id === bookId);
+
+  if (!currentBook) return; // Exit if no book found
+
+  // Update display elements inside the popup
+  document.getElementById('edit-title').textContent = currentBook.title;
+  document.getElementById('edit-author').textContent = currentBook.author;
+  document.getElementById('edit-description').textContent =
+    currentBook.description;
+  document.getElementById('edit-cover').src = currentBook.coverImg;
+
+  // Store the book ID in form attribute
+  document.getElementById('edit-form').setAttribute('data-book-id', bookId);
+
+  // Show the popup
+  popup.style.display = 'block';
+}
+
+function closePopup() {
+  const popup = document.getElementById('edit-popup');
+  popup.style.display = 'none';
+}
