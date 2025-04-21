@@ -153,8 +153,8 @@ button {
 
 .book-card .close-btn {
   position: absolute;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.525);
