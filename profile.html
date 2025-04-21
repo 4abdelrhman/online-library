@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
     <script type="module">
-      import header from "./Components/header.js";
-      document.addEventListener("DOMContentLoaded", () =>
-        header.renderUserHeader("header")
+      import header from './Components/header.js';
+      document.addEventListener('DOMContentLoaded', () =>
+        header.renderUserHeader('header')
       );
     </script>
     <link rel="stylesheet" href="Styles/profile.css" />
@@ -28,11 +28,35 @@
     </div>
 
     <div class="borrowed">
-      <p>Borrowed Books by username:</p>
+      <p>Borrowed Books:</p>
       <label class="num" id="borrowed-count">(0)</label>
     </div>
 
     <div class="books-container" id="books-container"></div>
+
+    <div class="black" id="edit-popup" style="display: none">
+      <div class="book-card">
+        <button class="close-btn" onclick="closePopup()">
+          <img src="Imgs/close.png" class="close-img" />
+        </button>
+        <!-- edit form -->
+        <form id="edit-form">
+          <div class="edit-book-cover">
+            <img src="Imgs/" id="edit-cover" />
+          </div>
+          <div class="edit-book-details">
+            <label for="edit-title">Book Title</label>
+            <p id="edit-title" class="popup-text"></p>
+
+            <label for="edit-author">Author</label>
+            <p id="edit-author" class="popup-text"></p>
+
+            <label for="edit-description">Description</label>
+            <p id="edit-description" class="popup-text"></p>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="JavaScript/profile.js"></script>
   </body>
