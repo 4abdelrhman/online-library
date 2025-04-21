@@ -12,7 +12,6 @@ body {
 .available-books {
   padding-left: 1%;
   padding-bottom: 1%;
-  color: #6b6c4a;
 }
 
 .grid-container {
@@ -46,11 +45,6 @@ body {
   padding: 5%;
 }
 
-.fav {
-  width: 10%;
-  cursor: pointer;
-}
-
 .book-info {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -70,7 +64,7 @@ body {
 .title {
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 100%;
 }
 
 .author {
@@ -85,43 +79,184 @@ body {
 
 .buttons {
   display: flex;
-  gap: 10%;
+  justify-content: space-between;
+  width: 95%;
 }
 
 button {
   width: 48%;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-a{
-  width: 48%;
 }
 
 .borrow {
-  background-color: #656647;
-  border: none;
+  background-color: #6b6c4a;
   color: #fff;
+  height: 30px;
 }
 
 .borrow:hover {
-  background-color: #7a7a55;
+  border: 1.5px solid #6b6c4a;
 }
 
 .details {
-  border: 1.5px solid #6b6c4a;
+  background-color: inherit;
+  border: 1.5px solid #8a8a65;
   color: #6b6c4a;
-  height: 30px;
-  width: 100%;
-
 }
 
 .details:hover {
-  background-color: #d3d1d1;
+  border: 1.5px solid #6b6c4a;
+  color: #6b6c4a;
 }
 @media (min-width: 801px) and (max-width: 1060px) {
   * {
     font-size: 1.2vw;
   }
+}
+
+.fav-btn {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+}
+
+.fav-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.black {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.385);
+}
+
+.book-card {
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.book-card .close-btn {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.525);
+  left: 20px;
+  top: 7px;
+}
+
+.close-img {
+  width: 100%;
+  height: 100%;
+}
+
+.book-detail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px;
+  gap: 30px;
+  padding: 35px 30px 30px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.book-card .book-cover {
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.book-card .book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.book-card .book-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.book-card .author {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.book-card .discription {
+  font-size: 15px;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.book-card .remove {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: red;
+}
+
+.book-card .cover-container {
+  width: 250px;
+  height: 375px;
+}
+
+.book-card .edit-icon {
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.book-card .cover-container .edit-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.525);
+  right: 0;
+  bottom: 30px;
+}
+.id {
+  width: 45px;
+  text-align: center;
+  padding: 4px;
+  display: block;
+  font-size: 10px;
+  border: 1px solid #00000090;
+  border-radius: 14px;
+  color: #6b6c4a;
+}
+.black .book-card .book-details .id {
+  width: 10%;
+  height: 20px;
+}
+
+.cover-details-container .book-cover {
+  width: 100%;
+  height: 100%;
 }
