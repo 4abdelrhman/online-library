@@ -316,6 +316,7 @@ A .View-details,
   border-right: none;
   border-top: none;
   border-bottom: 1px solid #00000064;
+  font-size: 14px;
 }
 
 #edit-description {
