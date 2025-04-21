@@ -16,37 +16,17 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="Styles/userbookDetails.css" />
+    <link rel="stylesheet" href="Styles/header.css" />
   </head>
 
   <body>
     <nav id="header"></nav>
 
     <h2 class="book-details-word">Book Details</h2>
-    <div class="book-card">
-      <div class="book">
-        <img src="Imgs/bookCover1.jpg" alt="Book-1" class="book-cover" />
-        <div class="book-details">
-          <div class="book-title">
-            <h2>Little Women</h2>
-          </div>
-          <h4 class="author">Louisa May Alcott</h4>
-          <p class="discription">
-            Little Women follows the four March sisters—Jo, Beth, Meg, and
-            Amy—as they navigate life, love, and personal growth in Civil
-            War-era New England. Inspired by Louisa May Alcott's own family, the
-            novel explores themes of sisterhood, ambition, and resilience.
-            Though written as a "girl's book," its timeless messages have made
-            it a classic for all readers.
-          </p>
-          <div class="book-id">
-            <p>ID: 200</p>
-          </div>
-          <div class="buttons">
-            <button class="fav-btn">Add to Favorites</button>
-            <button class="borrow-btn">Borrow</button>
-          </div>
-        </div>
-      </div>
+    <div class="book-card" id="book-container">
+      <!-- Book card will be dynamically injected here -->
     </div>
+
+    <script type="module" src="./JavaScript/userBookDetails.js"></script>
   </body>
 </html>
