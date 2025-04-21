@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   borrowedBooks.forEach((book) => {
     const bookHTML = `
       <div class="book" data-id="${book.id}">
-        <img src="Imgs/${book.coverImg}" class="book-cover" />
+        <img src="${book.coverImg}" class="book-cover" />
         <div class="book-side">
           <div class="title">
             <h2>${book.title}</h2>
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     borrowBtn.addEventListener('click', () => {
       currentBook = book;
       handleClick(
-        'borrowedBooks',
+        'borrowed',
         borrowBtn,
         'Borrowed',
         'Borrow',
@@ -132,19 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function detailsBook(button) {
   const bookElement = button.closest('.book');
-  const bookId = bookElement.getAttribute('data-id');
+  const bookId = Number(bookElement.getAttribute('data-id')); // Convert to number
+
   const popup = document.getElementById('edit-popup');
-
   const books = JSON.parse(localStorage.getItem('borrowedBooks')) || [];
-  currentBook = books.find((b) => b.id === bookId);
-  if (!currentBook) return;
 
-  // Update display elements
+  // Find the book with the corresponding bookId
+  currentBook = books.find((b) => b.id === bookId);
+
+  if (!currentBook) return; // Exit if no book found
+
+  // Update display elements inside the popup
   document.getElementById('edit-title').textContent = currentBook.title;
   document.getElementById('edit-author').textContent = currentBook.author;
   document.getElementById('edit-description').textContent =
     currentBook.description;
-  document.getElementById('edit-cover').src = `Imgs/${currentBook.coverImg}`;
+  document.getElementById('edit-cover').src = currentBook.coverImg;
 
   // Store the book ID in form attribute
   document.getElementById('edit-form').setAttribute('data-book-id', bookId);
