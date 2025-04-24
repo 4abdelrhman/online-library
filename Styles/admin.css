@@ -467,8 +467,6 @@ nav .btns .exp {
   align-items: center;
 }
 
-
-
 #edit-form .submit {
   width: 150px;
   height: 30px;
@@ -482,4 +480,100 @@ nav .btns .exp {
 #edit-form .edit-book-details label {
   color: #666;
   font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+  .books-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .book {
+    width: 100%;
+  }
+
+  .book-card {
+    height: auto;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .book-card .cover-container {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .add-books {
+    gap: 10px;
+  }
+
+  .add-books button {
+    width: 50%;
+  }
+  .add-books h1 {
+    width: 50%;
+  }
+
+  .books-container {
+    grid-template-columns: 1fr;
+    margin: 0 10px;
+  }
+
+  .book {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .book-side {
+    gap: 10px;
+  }
+
+  .discrebtion {
+    width: 100%;
+  }
+
+  .book-detail {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #book-form,
+  .edit-book-details {
+    width: 100%;
+  }
+
+  #edit-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-card {
+    padding: 15px;
+  }
+
+  .edit-book-cover {
+    width: 100%;
+    height: auto;
+  }
+
+  .book-card .discription {
+    font-size: 14px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .remove {
+    padding: 8px;
+  }
+  .add-books button {
+    width: 50%;
+  }
+  .add-books h1 {
+    width: 50%;
+  }
 }
