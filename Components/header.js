@@ -66,12 +66,12 @@ const header = {
   },
   renderAdminHeader: function (id) {
     document.getElementById(id).innerHTML = this.getAdminHeader();
-    this.addSearchListener(); // Add event listener after rendering the header
+    this.addSearchListener();
   },
 
   renderUserHeader: function (id) {
     document.getElementById(id).innerHTML = this.getUserHeader();
-    this.addSearchListener(); // Add event listener after rendering the header
+    this.addSearchListener();
   },
 
   // Add the event listener function
