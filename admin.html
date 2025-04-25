@@ -23,405 +23,94 @@
     <br />
     <div class="add-books">
       <h1>Available Books</h1>
-      <button type="button">Add Book</button>
+      <button onclick="addBook()" id="add-books-btn">Add Book</button>
     </div>
 
-    <div class="books-container">
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
+    <div class="black" id="add-book-popup" style="display: none">
+      <div class="book-card">
+        <button class="close-btn" onclick="closeAddBookPopup()">
+          <img src="Imgs/close.png" class="close-img" />
+        </button>
+        <div class="book-detail add-book-details">
+          <div>
+            <h2>Add New Book</h2>
           </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
+          <form id="book-form">
+            <input
+              type="text"
+              id="book-title"
+              placeholder="Book Title"
+              required
+              autocomplete="off"
+            />
+            <input
+              type="text"
+              id="book-author"
+              placeholder="Author"
+              required
+              autocomplete="off"
+            />
+            <textarea
+              id="book-description"
+              placeholder="Description"
+              required
+              autocomplete="off"
+            ></textarea>
+            <input
+              type="text"
+              id="book-cover"
+              placeholder="Image URL"
+              required
+              autocomplete="off"
+            />
 
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
-        </div>
-      </div>
-
-      <div class="book">
-        <img src="Imgs/81F90H7hnML.jpg" class="book-cover" />
-        <div class="book-side">
-          <div class="title">
-            <h2>Atomic Habits</h2>
-            <button>
-              <img src="Imgs/editing.png" class="edit-icon" />
-            </button>
-          </div>
-          <h4 class="auther">James Clear</h4>
-          <p class="discrebtion">
-            A guide to forming good habits and breaking bad ones through small,
-            consistent changes over time.
-          </p>
-          <div class="id">
-            <p>ID: 101</p>
-          </div>
-
-          <button class="remove">Delete Book</button>
+            <button type="submit">Add Book</button>
+          </form>
         </div>
       </div>
     </div>
+
+    <div class="books-container"></div>
+
+    <div class="black" id="edit-popup" style="display: none">
+      <div class="book-card">
+        <button class="close-btn" onclick="closePopup()">
+          <img src="Imgs/close.png" class="close-img" />
+        </button>
+        <!-- edit form -->
+        <form id="edit-form">
+          <div class="edit-book-cover">
+            <img src="Imgs/" id="edit-cover" />
+          </div>
+          <div class="edit-book-details">
+            <label for="edit-title">Book Title</label>
+            <input
+              type="text"
+              id="edit-title"
+              placeholder="Book Title"
+              required
+              autocomplete="off"
+            />
+            <label for="edit-author">Author</label>
+            <input
+              type="text"
+              id="edit-author"
+              placeholder="Author"
+              required
+              autocomplete="off"
+            />
+            <label for="edit-description">Description</label>
+            <textarea
+              id="edit-description"
+              placeholder="Description"
+              required
+              autocomplete="off"
+            ></textarea>
+          </div>
+          <button class="submit" type="submit">Save changes</button>
+        </form>
+      </div>
+    </div>
+    <script src="JavaScript/admin.js"></script>
   </body>
 </html>
