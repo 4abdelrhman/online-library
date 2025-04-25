@@ -74,7 +74,6 @@ const header = {
     this.addSearchListener();
   },
 
-  // Add the event listener function
   addSearchListener: function () {
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
