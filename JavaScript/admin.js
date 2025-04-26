@@ -22,7 +22,7 @@ function loadBooksFromStorage() {
 
   books.forEach((book) => {
     container.innerHTML += `<div class="book" data-id="${book.id}">
-      <img src="Imgs/Cover/${book.cover}.jpg" class="book-cover" />
+      <img src="${book.coverImg}" class="book-cover" />
       <div class="book-side">
         <div class="title">
           <h2>${book.title}</h2>
@@ -58,7 +58,7 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
   const title = document.getElementById('book-title').value;
   const author = document.getElementById('book-author').value;
   const description = document.getElementById('book-description').value;
-  const cover = document.getElementById('book-cover').value;
+  const coverImg = document.getElementById('book-cover').value;
 
   // Create a new book object with a unique ID
   const book = {
@@ -66,9 +66,10 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
     title,
     author,
     description,
-    cover,
+    coverImg,
   };
-
+  console.log(book.coverImg);
+  
   // Get existing books from local storage
   const books = JSON.parse(localStorage.getItem('books')) || [];
 

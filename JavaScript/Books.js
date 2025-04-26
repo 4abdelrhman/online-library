@@ -48,6 +48,7 @@ const isFav = (searchId) => {
 };
 
 allBooks.forEach((element) => {
+  element.id = Number(element.id); 
   let book = document.createElement("div");
   book.className = "book-info";
   book.dataset.dataIndex = element.id;
@@ -140,11 +141,11 @@ function detailsBook(button) {
 
   const popup = document.getElementById("edit-popup");
   
-  const books = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+  const books = JSON.parse(localStorage.getItem("books")) || [];
   
 
   // Find the book with the corresponding bookId
-  currentBook = books.find((b) => b.id === bookId);
+  currentBook = books.find((b) => b.id == bookId);
   
 
   if (!currentBook) return; // Exit if no book found
