@@ -30,7 +30,7 @@ const header = {
         <div class="profile-menu">
           <button class="user"><img src="Imgs/user.png" /></button>
           <div class="profile-menu-content">
-            <a href="logout.html">Logout</a>
+            <a href="#" class="logout">Logout</a>
           </div>
         </div>`;
   },
@@ -131,6 +131,10 @@ const header = {
       searchInput.addEventListener('input', (event) => {
         const searchVal = event.target.value.toLowerCase();
         const books = JSON.parse(localStorage.getItem('books')) || [];
+        const borrowedBooks =
+          JSON.parse(localStorage.getItem('borrowedBooks')) || [];
+        let favBooks = JSON.parse(localStorage.getItem('favBooks')) || [];
+
         const container = document.querySelector('.books-container');
         container.innerHTML = '';
 
@@ -143,8 +147,86 @@ const header = {
 
         const booksToDisplay = searchVal ? filteredBooks : books;
 
-        booksToDisplay.forEach((book) => {
-          container.innerHTML += ``;
+        const isFav = (id) => {
+          return favBooks.some((item) => item.id == id);
+        };
+
+        booksToDisplay.forEach((element) => {
+          let book = document.createElement('div');
+          book.className = 'book-info';
+          book.dataset.dataIndex = element.id;
+          book.innerHTML = `<div class="cover-container">
+              <img src="${element.coverImg}" alt="book cover" class="cover" />
+            </div>
+            <div class="text-info">
+              <div class="title">
+                <h4>${element.title}</h4>
+                <img src="${
+                  isFav(element.id)
+                    ? './Imgs/Style=bold.png'
+                    : './Imgs/Style=linear.png'
+                }" 
+                data-index="${element.id}"
+                alt="fav icon" class="fav" />
+              </div>
+              <p class="author">${element.author}</p>
+              <p class="descreption">${element.description}</p>
+              <div class="buttons">
+                <button class="details" onclick="detailsBook(this)">View Details</button>
+                <button class="${
+                  borrowedBooks.some((item) => item.id == element.id)
+                    ? 'disabled-borrow'
+                    : 'borrow'
+                }" data-index="${element.id}">
+                  ${
+                    borrowedBooks.some((item) => item.id == element.id)
+                      ? 'Borrowed'
+                      : 'Borrow Book'
+                  }
+                </button>
+              </div>
+            </div>`;
+
+          container.appendChild(book);
+        });
+
+        // re-add event listeners
+        document.querySelectorAll('.borrow').forEach((item) => {
+          item.addEventListener('click', (e) => {
+            const bookId = e.target.getAttribute('data-index');
+            let borrowedBooks =
+              JSON.parse(window.localStorage.getItem('borrowedBooks')) || [];
+            let exist = borrowedBooks.some((item) => item.id == bookId);
+            const bookToBorrow = books.find((item) => bookId == item.id);
+            if (!exist) {
+              borrowedBooks.push(bookToBorrow);
+              window.localStorage.setItem(
+                'borrowedBooks',
+                JSON.stringify(borrowedBooks)
+              );
+            }
+            e.target.className = 'disabled-borrow';
+            e.target.innerHTML = 'Borrowed';
+          });
+        });
+
+        document.querySelectorAll('.fav').forEach((item) => {
+          item.addEventListener('click', (e) => {
+            let id = e.target.getAttribute('data-index');
+            const book = books.find((item) => id == item.id);
+            let existInFavs = JSON.parse(
+              window.localStorage.getItem('favBooks')
+            ).some((item) => item.id == id);
+            if (existInFavs) {
+              favBooks = favBooks.filter((item) => item.id != id);
+              window.localStorage.setItem('favBooks', JSON.stringify(favBooks));
+              e.target.src = './Imgs/Style=linear.png';
+            } else {
+              favBooks.push(book);
+              window.localStorage.setItem('favBooks', JSON.stringify(favBooks));
+              e.target.src = './Imgs/Style=bold.png';
+            }
+          });
         });
       });
     }
