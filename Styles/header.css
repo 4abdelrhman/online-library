@@ -134,3 +134,33 @@ nav .btns .exp {
   width: 20px;
   height: 20px;
 }
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-menu-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 150px;
+  z-index: 100;
+}
+.profile-menu-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+.profile-menu-content a:hover {
+  background-color: #6b6c4a;
+  color: white;
+}
+
+.profile-menu:hover .profile-menu-content {
+  display: block;
+}
