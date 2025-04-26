@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log In - online library</title>
+    <title>Log In - Online Library</title>
     <link
       rel="shortcut icon"
       href="Imgs/stack-of-books.png"
@@ -18,52 +18,59 @@
           <img src="Imgs/arrow.png" class="back" />
         </button>
       </a>
-      <form action="">
+
+      <form onsubmit="return false;">
         <div class="img-container">
           <img src="Imgs/Logo.png" class="img-logo" alt="Library Logo" />
         </div>
 
         <div class="form-header">
           <h2>Welcome Back</h2>
-          <p>Please Log in with your account</a></p>
+          <p>Please log in with your account</p>
         </div>
 
         <div class="input-container">
-          
           <label>Email Address</label>
-          <input type="email" placeholder="Email"  />
+          <input type="email" placeholder="Email" class="logEmail" />
 
           <label>Password</label>
           <div class="password-wrapper">
             <input
               type="password"
               placeholder="Password"
-              
-              class="pass"
+              class="logPass pass"
             />
-            <button type="button" class="show-pass" onclick="">
-              <img src="Imgs/hide.png" />
+            <button type="button" class="show-pass">
+              <img src="Imgs/hide.png" id="toggleIcon" />
             </button>
           </div>
-
         </div>
+
         <div class="remem">
           <div>
-            <input type="checkbox" id="remember"> 
+            <input type="checkbox" id="remember" />
             <label for="remember">Remember me</label>
           </div>
-          <a href="">Forgot passsword?</a>
+          <a href="#">Forgot password?</a>
         </div>
+
+        <div
+          class="error-message"
+          style="color: red; display: none"
+          id="errorMsg"
+        ></div>
+
         <div class="log-in">
-          <a href="admin.html
-          ">
-          <button type="button" class="submit" href="admin.html">Log in as admin</button>
-        </a>
-          <a href="Books.html">
-            <button type="button" class="submit" >Log in as user</button>
-          </a>
+          <button type="button" class="submit logbtn" data-role="admin">
+            Log in as admin
+          </button>
+          <button type="button" class="submit logbtn" data-role="user">
+            Log in as user
+          </button>
         </div>
       </form>
     </div>
+
+    <script src="JavaScript/logIn.js"></script>
   </body>
 </html>
