@@ -30,7 +30,7 @@ const header = {
         <div class="profile-menu">
           <button class="user"><img src="Imgs/user.png" /></button>
           <div class="profile-menu-content">
-            <a href="logout.html">Logout</a>
+            <a href="#" class="logout">Logout</a>
           </div>
         </div>`;
   },
