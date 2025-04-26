@@ -1,3 +1,4 @@
+// Get DOM elements
 var logEmail = document.querySelector(".logEmail");
 var logPass = document.querySelector(".logPass");
 var logBtns = document.querySelectorAll(".logbtn");
@@ -26,6 +27,8 @@ function logIn() {
         accounts[i] = temp;
 
         localStorage.setItem("accounts", JSON.stringify(accounts));
+
+        localStorage.setItem("username", accounts[0].username);
 
         window.location.href = "Books.html";
         return;
