@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="Styles/Books.css" />
     <link rel="stylesheet" href="Styles/header.css" />
+    <link rel="stylesheet" href="Styles/BookCard.css">
   </head>
   <body>
     <nav id="header"></nav>
@@ -25,6 +26,30 @@
     </div>
     <div class="grid-container">
       <script src="./JavaScript/Favorites.js"></script>
+    </div>
+
+        <div class="black" id="edit-popup" style="display: none">
+      <div class="book-card">
+        <button class="close-btn" onclick="closePopup()">
+          <img src="Imgs/close.png" class="close-img" />
+        </button>
+        <!-- edit form -->
+        <form id="edit-form">
+          <div class="edit-book-cover">
+            <img src="Imgs/" id="edit-cover" />
+          </div>
+          <div class="edit-book-details">
+            <label for="edit-title">Book Title</label>
+            <p id="edit-title" class="popup-text"></p>
+
+            <label for="edit-author">Author</label>
+            <p id="edit-author" class="popup-text"></p>
+
+            <label for="edit-description">Description</label>
+            <p id="edit-description" class="popup-text"></p>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

@@ -8,6 +8,7 @@ const isFav = (searchId) => {
 favBooks.forEach((element) => {
   let bookContainer = document.createElement("div");
   bookContainer.className = "book-info";
+  bookContainer.dataset.dataIndex = element.id;
   bookContainer.innerHTML = `<div class="cover-container">
           <img src= ${element.coverImg} alt="book cover" class="cover" />
         </div>
@@ -27,9 +28,7 @@ favBooks.forEach((element) => {
            ${element.description}
           </p>
           <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
+            <button class="details" onclick="detailsBook(this)">View Details</button>
             <button class= ${
               JSON.parse(window.localStorage.getItem("borrowedBooks")).some(
                 (item) => item.id == element.id
@@ -91,3 +90,36 @@ document.querySelectorAll(".fav").forEach((item) => {
     }
   });
 });
+
+function detailsBook(button) {
+  const bookElement = button.closest(".book-info");
+
+  const bookId = Number(bookElement.getAttribute("data-data-index")); // Convert to number
+
+  const popup = document.getElementById("edit-popup");
+
+  const books = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+  // Find the book with the corresponding bookId
+  currentBook = books.find((b) => b.id === bookId);
+
+  if (!currentBook) return; // Exit if no book found
+
+  // Update display elements inside the popup
+  document.getElementById("edit-title").textContent = currentBook.title;
+  document.getElementById("edit-author").textContent = currentBook.author;
+  document.getElementById("edit-description").textContent =
+    currentBook.description;
+  document.getElementById("edit-cover").src = currentBook.coverImg;
+
+  // Store the book ID in form attribute
+  document.getElementById("edit-form").setAttribute("data-book-id", bookId);
+
+  // Show the popup
+  popup.style.display = "block";
+}
+
+function closePopup() {
+  const popup = document.getElementById("edit-popup");
+  popup.style.display = "none";
+}

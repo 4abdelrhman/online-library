@@ -97,10 +97,6 @@ button {
   transition: 0.3s;
 }
 
-a {
-  width: 48%;
-}
-
 .borrow {
   background-color: #656647;
   border: none;
@@ -123,7 +119,7 @@ a {
   border: 1.5px solid #6b6c4a;
   color: #6b6c4a;
   height: 30px;
-  width: 100%;
+  width: 48%;
 }
 
 .details:hover {
@@ -133,4 +129,15 @@ a {
   * {
     font-size: 1.2vw;
   }
+}
+
+.black {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.385);
 }
