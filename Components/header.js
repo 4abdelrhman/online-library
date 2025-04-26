@@ -75,11 +75,13 @@ const header = {
   renderAdminHeader: function (id) {
     document.getElementById(id).innerHTML = this.getAdminHeader();
     this.adminSearchListener();
+    this.logOut();
   },
 
   renderUserHeader: function (id) {
     document.getElementById(id).innerHTML = this.getUserHeader();
     this.userSearchListener();
+    this.logOut();
   },
 
   adminSearchListener: function () {
@@ -146,6 +148,19 @@ const header = {
         });
       });
     }
+  },
+
+  logOut: function () {
+    const logout = document.querySelectorAll(
+      '.profile-menu-content a[href="logout.html"]'
+    );
+
+    logout.forEach((link) => {
+      link.addEventListener('click', () => {
+        localStorage.removeItem('username');
+        window.location.href = 'login.html';
+      });
+    });
   },
 };
 
