@@ -68,7 +68,7 @@ const header = {
           </button>
           <div class="profile-menu-content">
             <a href="profile.html">view profile</a>
-            <a href="logout.html">Logout</a>
+            <a href="#" class="logout">Logout</a>
           </div>
         </div>`;
   },
@@ -151,14 +151,13 @@ const header = {
   },
 
   logOut: function () {
-    const logout = document.querySelectorAll(
-      '.profile-menu-content a[href="logout.html"]'
-    );
+    const logout = document.querySelectorAll('.logout');
 
     logout.forEach((link) => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
         localStorage.removeItem('username');
-        window.location.href = 'login.html';
+        location.href = 'index.html';
       });
     });
   },
