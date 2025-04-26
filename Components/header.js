@@ -27,9 +27,11 @@ const header = {
           />
         </div>
   
-        <div>
-          <a href="profile.html"><button class="user"><img src="Imgs/user.png" /></button></a>
-          <button class="setting"><img src="Imgs/settings.png" /></button>
+        <div class="profile-menu">
+          <button class="user"><img src="Imgs/user.png" /></button>
+          <div class="profile-menu-content">
+            <a href="logout.html">Logout</a>
+          </div>
         </div>`;
   },
   getUserHeader: function () {
@@ -60,21 +62,27 @@ const header = {
           />
         </div>
   
-        <div>
-          <a href="profile.html"><button class="user"><img src="Imgs/user.png" /></button></a>
+        <div class="profile-menu">
+          <button class="user">
+          <img src="Imgs/user.png" />
+          </button>
+          <div class="profile-menu-content">
+            <a href="profile.html">view profile</a>
+            <a href="logout.html">Logout</a>
+          </div>
         </div>`;
   },
   renderAdminHeader: function (id) {
     document.getElementById(id).innerHTML = this.getAdminHeader();
-    this.addSearchListener();
+    this.adminSearchListener();
   },
 
   renderUserHeader: function (id) {
     document.getElementById(id).innerHTML = this.getUserHeader();
-    this.addSearchListener();
+    this.userSearchListener();
   },
 
-  addSearchListener: function () {
+  adminSearchListener: function () {
     const searchInput = document.getElementById('search-input');
     if (searchInput) {
       searchInput.addEventListener('input', (event) => {
@@ -110,6 +118,31 @@ const header = {
               <button class="remove" onclick="deleteBook(this)">Delete Book</button>
             </div>
           </div>`;
+        });
+      });
+    }
+  },
+
+  userSearchListener: function () {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        const searchVal = event.target.value.toLowerCase();
+        const books = JSON.parse(localStorage.getItem('books')) || [];
+        const container = document.querySelector('.books-container');
+        container.innerHTML = '';
+
+        const filteredBooks = books.filter((book) => {
+          return (
+            book.title.toLowerCase().includes(searchVal) ||
+            book.author.toLowerCase().includes(searchVal)
+          );
+        });
+
+        const booksToDisplay = searchVal ? filteredBooks : books;
+
+        booksToDisplay.forEach((book) => {
+          container.innerHTML += ``;
         });
       });
     }
