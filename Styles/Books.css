@@ -107,6 +107,14 @@ a {
   color: #fff;
 }
 
+.disabled-borrow{
+  background-color: #E0E0E0;
+  border : 1px solid #BDBDBD;
+  color: #9E9E9E;
+  cursor:default;
+  opacity: 0.95;
+}
+
 .borrow:hover {
   background-color: #7a7a55;
 }

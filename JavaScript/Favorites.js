@@ -1,54 +1,14 @@
-// array of books
-const fromBack = [
-  {
-    author: "Louisa May Alcott",
-    coverImg: "Imgs/bookCover1.jpg",
-    description:
-      "Little Women follows the four March sisters—Jo, Beth, Meg, and Amy—as they navigate life, love",
-    id: 200,
-    title: "Little Women",
-  },
-  {
-    author: "Louisa May Alcott",
-    coverImg: "Imgs/bookCover1.jpg",
-    description:
-      "Little Women follows the four March sisters—Jo, Beth, Meg, and Amy—as they navigate life, love",
-    id: 201,
-    title: "Little Women2",
-  },
-  {
-    author: "Louisa May Alcott",
-    coverImg: "Imgs/bookCover1.jpg",
-    description:
-      "Little Women follows the four March sisters—Jo, Beth, Meg, and Amy—as they navigate life, love",
-    id: 202,
-    title: "Little Women3",
-  },
-];
-
-if (!window.localStorage.getItem("borrowedBooks")) {
-  window.localStorage.setItem("borrowedBooks", "[]");
-}
-
-if (!window.localStorage.getItem("favBooks")) {
-  window.localStorage.setItem("favBooks", "[]");
-}
-window.localStorage.setItem("books", JSON.stringify(fromBack));
-
-let allBooks = JSON.parse(window.localStorage.getItem("books"));
-
-let bookContainer = document.getElementById("books-container");
-
 let favBooks = JSON.parse(window.localStorage.getItem("favBooks"));
+let allBooks = JSON.parse(window.localStorage.getItem("books"));
 
 const isFav = (searchId) => {
   return favBooks.some((item) => searchId === item.id);
 };
 
-allBooks.forEach((element) => {
-  let book = document.createElement("div");
-  book.className = "book-info";
-  book.innerHTML = `<div class="cover-container">
+favBooks.forEach((element) => {
+  let bookContainer = document.createElement("div");
+  bookContainer.className = "book-info";
+  bookContainer.innerHTML = `<div class="cover-container">
           <img src= ${element.coverImg} alt="book cover" class="cover" />
         </div>
         <div class="text-info">
@@ -89,7 +49,7 @@ allBooks.forEach((element) => {
             </button>
           </div>
         </div>`;
-  bookContainer.appendChild(book);
+  document.querySelector(".grid-container").appendChild(bookContainer);
 });
 
 document.querySelectorAll(".borrow").forEach((item) => {
