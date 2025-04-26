@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="Styles/Books.css" />
     <link rel="stylesheet" href="Styles/header.css" />
+    <link rel="stylesheet" href="Styles/BookCard.css">
   </head>
   <body>
     <nav id="header"></nav>
@@ -24,247 +25,30 @@
       <h2>Favourites</h2>
     </div>
     <div class="grid-container">
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
+      <script src="./JavaScript/Favorites.js"></script>
+    </div>
+
+        <div class="black" id="edit-popup" style="display: none">
+      <div class="book-card">
+        <button class="close-btn" onclick="closePopup()">
+          <img src="Imgs/close.png" class="close-img" />
+        </button>
+        <!-- edit form -->
+        <form id="edit-form">
+          <div class="edit-book-cover">
+            <img src="Imgs/" id="edit-cover" />
           </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
+          <div class="edit-book-details">
+            <label for="edit-title">Book Title</label>
+            <p id="edit-title" class="popup-text"></p>
+
+            <label for="edit-author">Author</label>
+            <p id="edit-author" class="popup-text"></p>
+
+            <label for="edit-description">Description</label>
+            <p id="edit-description" class="popup-text"></p>
           </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
-      </div>
-      <div class="book-info">
-        <div class="cover-container">
-          <img src="./Imgs/bookCover1.jpg" alt="book cover" class="cover" />
-        </div>
-        <div class="text-info">
-          <div class="title">
-            <h4>Little Woman</h4>
-            <img src="./Imgs/Style=bold.png" alt="fav icon" class="fav" />
-          </div>
-          <p class="author">Louisa May Alcott</p>
-          <p class="descreption">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-            esse molestiae. Deserunt quasi quibusdam id reprehenderit sequi
-          </p>
-          <div class="buttons">
-            <a href="userBookDetails.html">
-              <button class="details">View Details</button>
-            </a>
-            <button class="borrow">Borrow Book</button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </body>

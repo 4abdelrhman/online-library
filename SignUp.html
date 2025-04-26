@@ -31,15 +31,33 @@
 
         <div class="input-container">
           <label>Username</label>
-          <input type="text" placeholder="User name" />
+          <input
+            type="text"
+            placeholder="User name"
+            id="username"
+            autocomplete="off"
+            required
+          />
 
           <label>Email Address</label>
-          <input type="email" placeholder="Email" />
+          <input
+            type="email"
+            placeholder="Email"
+            id="email"
+            autocomplete="off"
+            required
+          />
 
           <label>Password</label>
           <div class="password-wrapper">
-            <input type="password" placeholder="Password" class="pass" />
-            <button type="button" class="show-pass" onclick="">
+            <input
+              type="password"
+              placeholder="Password"
+              class="pass"
+              id="password"
+              required
+            />
+            <button type="button" class="show-pass">
               <img src="Imgs/hide.png" />
             </button>
           </div>
@@ -50,17 +68,19 @@
               type="password"
               placeholder="Confirm Password"
               class="pass"
+              id="confirmPassword"
+              required
             />
-            <button type="button" class="show-pass" onclick="">
+            <button type="button" class="show-pass">
               <img src="Imgs/hide.png" />
             </button>
           </div>
         </div>
 
-        <a href="">
-          <button type="button" class="submit">Create Account</button>
-        </a>
+        <button type="button" class="submit">Create Account</button>
       </form>
     </div>
+
+    <script src="JavaScript/signUp.js"></script>
   </body>
 </html>
