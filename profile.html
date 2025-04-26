@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
     <script type="module">
-      import header from './Components/header.js';
-      document.addEventListener('DOMContentLoaded', () =>
-        header.renderUserHeader('header')
+      import header from "./Components/header.js";
+      document.addEventListener("DOMContentLoaded", () =>
+        header.renderUserHeader("header")
       );
     </script>
     <link rel="stylesheet" href="Styles/profile.css" />
@@ -23,8 +23,8 @@
 
     <div class="user-details">
       <img src="Imgs/cover photo.png" class="cover-img" />
-      <img src="Imgs/User photo.png" class="user-img" />
-      <h2 class="username">Abdelrhman Ahmed</h2>
+      <img src="Imgs/pfp.jpeg" class="user-img" />
+      <h2 id="profile-username" class="username"></h2>
     </div>
 
     <div class="borrowed">
@@ -37,9 +37,8 @@
     <div class="black" id="edit-popup" style="display: none">
       <div class="book-card">
         <button class="close-btn" onclick="closePopup()">
-          <img src="Imgs/close.png" class="close-img" />
+          <img src="Imgs/closet.jpg" class="close-img" />
         </button>
-        <!-- edit form -->
         <form id="edit-form">
           <div class="edit-book-cover">
             <img src="Imgs/" id="edit-cover" />
