@@ -5,26 +5,13 @@ var errorMsg = document.getElementById("errorMsg");
 var toggleBtn = document.querySelector(".show-pass");
 var toggleIcon = document.getElementById("toggleIcon");
 
-let accounts = [
-  //   {
-  //     email: "admin@example.com",
-  //     password: "admin123",
-  //     role: "admin",
-  //   },
-  //   {
-  //     email: "user@example.com",
-  //     password: "user123",
-  //     role: "user",
-  //   },
-];
-
-localStorage.setItem("accounts", JSON.stringify(accounts));
+let accounts = [];
 
 if (localStorage.getItem("accounts") != null) {
   accounts = JSON.parse(localStorage.getItem("accounts"));
 }
 
-function logIn(role) {
+function logIn() {
   let email = logEmail.value.trim();
   let pass = logPass.value.trim();
   let found = false;
@@ -40,21 +27,7 @@ function logIn(role) {
 
         localStorage.setItem("accounts", JSON.stringify(accounts));
 
-        if (accounts[i].role === "admin") {
-          if (role === "admin") {
-            window.location.href = "admin.html";
-          } else if (role === "user") {
-            window.location.href = "Books.html";
-          }
-        } else if (accounts[i].role === "user") {
-          if (role === "user") {
-            window.location.href = "Books.html";
-          } else {
-            errorMsg.innerText = "Users can only log in as user.";
-            errorMsg.style.display = "block";
-            return;
-          }
-        }
+        window.location.href = "Books.html";
         return;
       } else {
         errorMsg.innerText = "Incorrect password.";
@@ -73,8 +46,7 @@ function logIn(role) {
 logBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     errorMsg.style.display = "none";
-    let role = btn.getAttribute("data-role");
-    logIn(role);
+    logIn();
   });
 });
 
