@@ -11,9 +11,9 @@ const header = {
           </div>
   
           <ul class="nav-links">
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contactUs.html">Contact us</a></li>
           </ul>
         </div>
   
@@ -46,9 +46,9 @@ const header = {
           </div>
   
           <ul class="nav-links">
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contactUs.html">Contact us</a></li>
             <li><a href="favourites.html">Favourites</a></li>
           </ul>
         </div>
@@ -85,13 +85,13 @@ const header = {
   },
 
   adminSearchListener: function () {
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementById("search-input");
     if (searchInput) {
-      searchInput.addEventListener('input', (event) => {
+      searchInput.addEventListener("input", (event) => {
         const searchVal = event.target.value.toLowerCase();
-        const books = JSON.parse(localStorage.getItem('books')) || [];
-        const container = document.querySelector('.books-container');
-        container.innerHTML = '';
+        const books = JSON.parse(localStorage.getItem("books")) || [];
+        const container = document.querySelector(".books-container");
+        container.innerHTML = "";
 
         const filteredBooks = books.filter((book) => {
           return (
@@ -126,17 +126,17 @@ const header = {
   },
 
   userSearchListener: function () {
-    const searchInput = document.getElementById('search-input');
+    const searchInput = document.getElementById("search-input");
     if (searchInput) {
-      searchInput.addEventListener('input', (event) => {
+      searchInput.addEventListener("input", (event) => {
         const searchVal = event.target.value.toLowerCase();
-        const books = JSON.parse(localStorage.getItem('books')) || [];
+        const books = JSON.parse(localStorage.getItem("books")) || [];
         const borrowedBooks =
-          JSON.parse(localStorage.getItem('borrowedBooks')) || [];
-        let favBooks = JSON.parse(localStorage.getItem('favBooks')) || [];
+          JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+        let favBooks = JSON.parse(localStorage.getItem("favBooks")) || [];
 
-        const container = document.querySelector('.books-container');
-        container.innerHTML = '';
+        const container = document.querySelector(".books-container");
+        container.innerHTML = "";
 
         const filteredBooks = books.filter((book) => {
           return (
@@ -152,8 +152,8 @@ const header = {
         };
 
         booksToDisplay.forEach((element) => {
-          let book = document.createElement('div');
-          book.className = 'book-info';
+          let book = document.createElement("div");
+          book.className = "book-info";
           book.dataset.dataIndex = element.id;
           book.innerHTML = `<div class="cover-container">
               <img src="${element.coverImg}" alt="book cover" class="cover" />
@@ -163,8 +163,8 @@ const header = {
                 <h4>${element.title}</h4>
                 <img src="${
                   isFav(element.id)
-                    ? './Imgs/Style=bold.png'
-                    : './Imgs/Style=linear.png'
+                    ? "./Imgs/Style=bold.png"
+                    : "./Imgs/Style=linear.png"
                 }" 
                 data-index="${element.id}"
                 alt="fav icon" class="fav" />
@@ -175,13 +175,13 @@ const header = {
                 <button class="details" onclick="detailsBook(this)">View Details</button>
                 <button class="${
                   borrowedBooks.some((item) => item.id == element.id)
-                    ? 'disabled-borrow'
-                    : 'borrow'
+                    ? "disabled-borrow"
+                    : "borrow"
                 }" data-index="${element.id}">
                   ${
                     borrowedBooks.some((item) => item.id == element.id)
-                      ? 'Borrowed'
-                      : 'Borrow Book'
+                      ? "Borrowed"
+                      : "Borrow Book"
                   }
                 </button>
               </div>
@@ -191,40 +191,40 @@ const header = {
         });
 
         // re-add event listeners
-        document.querySelectorAll('.borrow').forEach((item) => {
-          item.addEventListener('click', (e) => {
-            const bookId = e.target.getAttribute('data-index');
+        document.querySelectorAll(".borrow").forEach((item) => {
+          item.addEventListener("click", (e) => {
+            const bookId = e.target.getAttribute("data-index");
             let borrowedBooks =
-              JSON.parse(window.localStorage.getItem('borrowedBooks')) || [];
+              JSON.parse(window.localStorage.getItem("borrowedBooks")) || [];
             let exist = borrowedBooks.some((item) => item.id == bookId);
             const bookToBorrow = books.find((item) => bookId == item.id);
             if (!exist) {
               borrowedBooks.push(bookToBorrow);
               window.localStorage.setItem(
-                'borrowedBooks',
+                "borrowedBooks",
                 JSON.stringify(borrowedBooks)
               );
             }
-            e.target.className = 'disabled-borrow';
-            e.target.innerHTML = 'Borrowed';
+            e.target.className = "disabled-borrow";
+            e.target.innerHTML = "Borrowed";
           });
         });
 
-        document.querySelectorAll('.fav').forEach((item) => {
-          item.addEventListener('click', (e) => {
-            let id = e.target.getAttribute('data-index');
+        document.querySelectorAll(".fav").forEach((item) => {
+          item.addEventListener("click", (e) => {
+            let id = e.target.getAttribute("data-index");
             const book = books.find((item) => id == item.id);
             let existInFavs = JSON.parse(
-              window.localStorage.getItem('favBooks')
+              window.localStorage.getItem("favBooks")
             ).some((item) => item.id == id);
             if (existInFavs) {
               favBooks = favBooks.filter((item) => item.id != id);
-              window.localStorage.setItem('favBooks', JSON.stringify(favBooks));
-              e.target.src = './Imgs/Style=linear.png';
+              window.localStorage.setItem("favBooks", JSON.stringify(favBooks));
+              e.target.src = "./Imgs/Style=linear.png";
             } else {
               favBooks.push(book);
-              window.localStorage.setItem('favBooks', JSON.stringify(favBooks));
-              e.target.src = './Imgs/Style=bold.png';
+              window.localStorage.setItem("favBooks", JSON.stringify(favBooks));
+              e.target.src = "./Imgs/Style=bold.png";
             }
           });
         });
@@ -233,13 +233,13 @@ const header = {
   },
 
   logOut: function () {
-    const logout = document.querySelectorAll('.logout');
+    const logout = document.querySelectorAll(".logout");
 
     logout.forEach((link) => {
-      link.addEventListener('click', (event) => {
+      link.addEventListener("click", (event) => {
         event.preventDefault();
-        localStorage.removeItem('username');
-        location.href = 'index.html';
+        localStorage.removeItem("username");
+        location.href = "index.html";
       });
     });
   },

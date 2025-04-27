@@ -134,18 +134,16 @@ document.querySelectorAll(".fav").forEach((item) => {
 });
 
 function detailsBook(button) {
-  const bookElement = button.closest(".book-info");  
-  
+  const bookElement = button.closest(".book-info");
+
   const bookId = Number(bookElement.getAttribute("data-data-index")); // Convert to number
 
   const popup = document.getElementById("edit-popup");
-  
-  const books = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
-  
+
+  const books = JSON.parse(localStorage.getItem("books")) || [];
 
   // Find the book with the corresponding bookId
   currentBook = books.find((b) => b.id === bookId);
-  
 
   if (!currentBook) return; // Exit if no book found
 
@@ -153,7 +151,7 @@ function detailsBook(button) {
   document.getElementById("edit-title").textContent = currentBook.title;
   document.getElementById("edit-author").textContent = currentBook.author;
   document.getElementById("edit-description").textContent =
-  currentBook.description;
+    currentBook.description;
   document.getElementById("edit-cover").src = currentBook.coverImg;
 
   // Store the book ID in form attribute
