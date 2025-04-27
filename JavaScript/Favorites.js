@@ -98,7 +98,7 @@ function detailsBook(button) {
 
   const popup = document.getElementById("edit-popup");
 
-  const books = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+  const books = JSON.parse(localStorage.getItem("favBooks")) || [];
 
   // Find the book with the corresponding bookId
   currentBook = books.find((b) => b.id === bookId);
