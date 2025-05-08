@@ -8,37 +8,42 @@ function generateBookId() {
     return 1;
   }
 
-  // Find the highest ID and increment by 1
+  // Create an array of the ids in the books and get the max num of it
+  // Then increment this id by 1
   const maxId = Math.max(...books.map((book) => parseInt(book.id)));
   return maxId + 1;
 }
 
 // Function to load books from local storage
-function loadBooksFromStorage() {
-  const books = JSON.parse(localStorage.getItem('books')) || [];
+async function loadBooksFromStorage() {
   const container = document.querySelector('.books-container');
-
   container.innerHTML = '';
 
-  books.forEach((book) => {
-    container.innerHTML += `<div class="book" data-id="${book.id}">
-      <img src="Imgs/Cover/${book.cover}.jpg" class="book-cover" />
-      <div class="book-side">
-        <div class="title">
-          <h2>${book.title}</h2>
-          <button class="edit-book" onclick="editBook(this)">
-            <img src="Imgs/editing.png" class="edit-icon" />
-          </button>
-        </div>
-        <h4 class="auther">${book.author}</h4>
-        <p class="description">${book.description}</p>
-          <div class="id">
-            <p>ID:${book.id}</p>
+  try {
+    const response = await fetch('/api/books/');
+    const books = await response.json();
+    books.forEach((book) => {
+      container.innerHTML += `<div class="book" data-id="${book.id}">
+        <img src="${book.cover}" class="book-cover" />
+        <div class="book-side">
+          <div class="title">
+            <h2>${book.title}</h2>
+            <button class="edit-book" onclick="editBook(this)">
+              <img src="Imgs/editing.png" class="edit-icon" />
+            </button>
           </div>
-        <button class="remove" onclick="deleteBook(this)">Delete Book</button>
-      </div>
-    </div>`;
-  });
+          <h4 class="auther">${book.author}</h4>
+          <p class="description">${book.description}</p>
+            <div class="id">
+              <p>ID:${book.id}</p>
+            </div>
+          <button class="remove" onclick="deleteBook(this)">Delete Book</button>
+        </div>
+      </div>`;
+    });
+  } catch (error) {
+    console.error('Faild to load books:', error);
+  }
 }
 
 // Load books when the page loads
@@ -52,85 +57,62 @@ function closeAddBookPopup() {
   document.getElementById('add-book-popup').style.display = 'none';
 }
 
-document.getElementById('book-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+document
+  .getElementById('book-form')
+  .addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-  const title = document.getElementById('book-title').value;
-  const author = document.getElementById('book-author').value;
-  const description = document.getElementById('book-description').value;
-  const cover = document.getElementById('book-cover').value;
+    const book = {
+      title: document.getElementById('book-title').value,
+      author: document.getElementById('book-author').value,
+      description: document.getElementById('book-description').value,
+      cover: document.getElementById('book-cover').value,
+    };
 
-  // Create a new book object with a unique ID
-  const book = {
-    id: generateBookId(),
-    title,
-    author,
-    description,
-    cover,
-  };
+    try {
+      await fetch('/api/books/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(book),
+      });
+      await loadBooksFromStorage();
+      closeAddBookPopup();
+      this.reset();
+    } catch (error) {
+      console.error('Failed to add book:', error);
+    }
+  });
 
-  // Get existing books from local storage
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-
-  // Add the new book to the array
-  books.push(book);
-
-  // Save the updated books array to local storage
-  localStorage.setItem('books', JSON.stringify(books));
-
-  // Reload books from storage to display the new book
-  loadBooksFromStorage();
-
-  // Close the form and reset it
-  closeAddBookPopup();
-  document.getElementById('book-form').reset();
-});
-
-function deleteBook(button) {
+async function deleteBook(button) {
   const bookElement = button.closest('.book');
   const bookId = bookElement.getAttribute('data-id');
-
-  // Remove from DOM
-  bookElement.remove();
-
-  // Remove from local storage
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  // Convert both IDs to strings for comparison to ensure they match regardless of type
-  const updatedBooks = books.filter(
-    (book) => String(book.id) !== String(bookId)
-  );
-  localStorage.setItem('books', JSON.stringify(updatedBooks));
-
-  // Log for debugging
-  console.log(`Deleted book with ID: ${bookId}`);
-  console.log(`Remaining books: ${updatedBooks.length}`);
+  try {
+    await fetch(`/api/books/${bookId}/`, { method: 'DELETE' });
+    await loadBooksFromStorage();
+  } catch (error) {
+    console.error('Faild To delete book:', error);
+  }
 }
 
 let currentBook = null;
 function editBook(button) {
+  // get the nearest parent with class book
   const bookElement = button.closest('.book');
   const bookId = bookElement.getAttribute('data-id');
   const popup = document.getElementById('edit-popup');
   currentBook = bookElement;
-
   // Get the book details
   const title = bookElement.querySelector('.title h2').textContent;
   const author = bookElement.querySelector('.auther').textContent;
   const description = bookElement.querySelector('.description').textContent;
   const coverImg = bookElement.querySelector('.book-cover').src;
-
-  // Extract the cover filename from the src
-  const cover = coverImg.split('/').pop().replace('.jpg', '');
-
   // Set the values in the edit form
   document.getElementById('edit-title').value = title;
   document.getElementById('edit-author').value = author;
   document.getElementById('edit-description').value = description;
   document.getElementById('edit-cover').src = coverImg;
-
   // Store the book ID for later use
   document.getElementById('edit-form').setAttribute('data-book-id', bookId);
-
   // Show the popup
   popup.style.display = 'block';
 }
@@ -140,45 +122,31 @@ function closePopup() {
   popup.style.display = 'none';
 }
 
-document.getElementById('edit-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+document
+  .getElementById('edit-form')
+  .addEventListener('submit', async function (e) {
+    // Prevent the page from refreshing
+    e.preventDefault();
+    if (!currentBook) return;
 
-  if (!currentBook) return;
+    const bookId = this.getAttribute('data-book-id');
+    const updatedBook = {
+      title: document.getElementById('edit-title').value,
+      author: document.getElementById('edit-author').value,
+      description: document.getElementById('edit-description').value,
+      cover: document.getElementById('edit-cover').src,
+    };
 
-  const bookId = this.getAttribute('data-book-id');
-  const newTitle = document.getElementById('edit-title').value;
-  const newAuthor = document.getElementById('edit-author').value;
-  const newDescription = document.getElementById('edit-description').value;
-  const newCoverImg = document.getElementById('edit-cover').src;
-
-  // Extract the cover filename from the src
-  const newCover = newCoverImg.split('/').pop().replace('.jpg', '');
-
-  // Update the book card in the DOM
-  currentBook.querySelector('h2').textContent = newTitle;
-  currentBook.querySelector('.auther').textContent = newAuthor;
-  currentBook.querySelector('.description').textContent = newDescription;
-  currentBook.querySelector('.book-cover').src = newCoverImg;
-
-  // Update the book in local storage
-  const books = JSON.parse(localStorage.getItem('books')) || [];
-  const updatedBooks = books.map((book) => {
-    // Convert both IDs to strings for comparison to ensure they match regardless of type
-    if (String(book.id) === String(bookId)) {
-      return {
-        ...book,
-        title: newTitle,
-        author: newAuthor,
-        description: newDescription,
-        cover: newCover,
-      };
+    try {
+      await fetch(`/api/books/${bookId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedBook),
+      });
+      await loadBooksFromStorage();
+      closePopup();
+      currentBook = null;
+    } catch (error) {
+      console.error('Failed to update book:', error);
     }
-    return book;
   });
-
-  localStorage.setItem('books', JSON.stringify(updatedBooks));
-
-  // Hide the popup and reset state
-  closePopup();
-  currentBook = null;
-});
